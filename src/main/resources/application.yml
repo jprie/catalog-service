@@ -27,3 +27,6 @@ management:
     web:
       exposure:
         include: refresh
+
+polar:
+  greeting: Welcome to the local book catalog!
