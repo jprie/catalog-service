@@ -6,4 +6,5 @@ server:
     threads:
       min-spare: 5
       max: 50
-
+polar:
+  greeting: Welcome to the local book catalog!
