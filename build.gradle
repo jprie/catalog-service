@@ -32,18 +32,20 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     implementation 'org.springframework.retry:spring-retry'
+    runtimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-bootRun {
-    systemProperty 'spring.profiles.active', 'testdata'
-}
+//bootRun {
+//    systemProperty 'spring.profiles.active', 'testdata'
+//}
 
 dependencyManagement {
     imports {
