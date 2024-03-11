@@ -30,7 +30,7 @@ public class BookRepositoryJdbcTests {
     @Test
     void findBookByIsbnWhenExists() {
         var bookIsbn = "1234567890";
-        var book = Book.of(bookIsbn, "Title", "Author", 12.90);
+        var book = Book.of(bookIsbn, "Title", "Author", 12.90, "Publisher");
         jdbcAggregateTemplate.insert(book);
 
         Optional<Book> actualBook = bookRepository.findByIsbn(bookIsbn);

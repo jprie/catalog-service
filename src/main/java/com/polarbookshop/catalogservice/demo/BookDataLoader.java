@@ -22,8 +22,8 @@ public class BookDataLoader {
     @EventListener(ApplicationReadyEvent.class)
     public void loadBookTestData() {
         bookRepository.deleteAll();
-        var book1 = Book.of("1234567890", "Mister Aufziehvogel", "Haruki Murakami", 23.80);
-        var book2 = Book.of("1234467890", "Kafka am Strand", "Haruki Murakami", 19.80);
+        var book1 = Book.of("1234567890", "Mister Aufziehvogel", "Haruki Murakami", 23.80, "Penguin");
+        var book2 = Book.of("1234467890", "Kafka am Strand", "Haruki Murakami", 19.80, "Penguin");
         bookRepository.saveAll(List.of(book1, book2));
     }
 }
