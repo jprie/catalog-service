@@ -39,12 +39,11 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Validate Kubernetes manifests
-#        uses: alexellis/setup-arkade@v1
         uses: alexellis/arkade-get@master
         with:
           kubeconform: latest
-          run: |
-            kubeconform -strict -verbose k8s
+        run: |
+          kubeconform -strict -verbose k8s
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}
