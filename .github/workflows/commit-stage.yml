@@ -43,7 +43,7 @@ jobs:
         uses: alexellis/arkade-get@master
         with:
           kubeconform: latest
-          command: |
+          run: |
             kubeconform -strict -verbose k8s
   package:
     name: Package and Publish
