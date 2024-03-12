@@ -42,9 +42,8 @@ jobs:
 #        uses: alexellis/setup-arkade@v1
         uses: alexellis/arkade-get@master
         with:
-            kubectl: latest
-            kubeconform: latest
-        command: |
+          kubeconform: latest
+          command: |
             kubeconform -strict -verbose k8s
   package:
     name: Package and Publish
