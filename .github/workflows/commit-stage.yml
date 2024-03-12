@@ -38,10 +38,11 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
-      - name: Validate Kubernetes manifests
+      - name: Install Alexellis CLI Tools
         uses: alexellis/arkade-get@master
         with:
           kubeconform: latest
+      - name: Validate Kubernetes manifests
         run: |
           kubeconform -strict -verbose k8s
   package:
