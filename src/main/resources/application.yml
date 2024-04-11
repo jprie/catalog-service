@@ -47,6 +47,6 @@ management:
 
 polar:
   greeting: Welcome to the local book catalog!
-logging:
-  level:
-    org.springframework.security: DEBUG
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
