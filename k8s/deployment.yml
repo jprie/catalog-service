@@ -35,3 +35,15 @@ spec:
               value: http://config-service:8888
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
               value: http://polar-keycloak/realms/PolarBookshop
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 9001
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              port: 9001
+              path: /actuator/health/readiness
+            initialDelaySeconds: 20
+            periodSeconds: 15
