@@ -1,9 +1,13 @@
 package com.polarbookshop.catalogservice.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BookService {
+
+    private static final Logger log = LoggerFactory.getLogger(BookService.class);
 
     private final BookRepository bookRepository;
 
@@ -25,14 +29,17 @@ public class BookService {
         if (bookRepository.existsByIsbn(book.isbn())) {
             throw new BookAlreadyExistsException(book.isbn());
         }
+        log.info("Adding new Book {} to catalog", book);
         return bookRepository.save(book);
     }
 
     public void removeBookFromCatalog(String isbn) {
+        log.info("Removing book with isbn {} from catalog", isbn);
         bookRepository.deleteByIsbn(isbn);
     }
 
     public Book editBookDetails(String isbn, Book book) {
+        log.info("Updating book {} with isbn {}", book, isbn);
         return bookRepository.findByIsbn(isbn)
                 .map(existingBook -> {
                     var bookToUpdate = new Book(
