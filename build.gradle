@@ -71,6 +71,10 @@ tasks.named('test') {
 //    systemProperty 'spring.profiles.active', 'testdata'
 //}
 
+springBoot {
+    buildInfo()
+}
+
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
