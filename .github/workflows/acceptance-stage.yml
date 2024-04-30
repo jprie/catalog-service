@@ -45,9 +45,9 @@ jobs:
           event-type: app_delivery
           client-payload: '{
             "app_image":
-              ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.APP_REPO }}",
+              "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.APP_REPO }}",
             "app_name":
-              "${{ env.APP_REPO }}" ,
+              "${{ env.APP_REPO }}",
             "app_version":
               "${{ env.VERSION }}"
           }'
